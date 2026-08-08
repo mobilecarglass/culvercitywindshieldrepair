@@ -1,12 +1,1 @@
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    var toggle = document.querySelector('.nav-toggle');
-    var backdrop = document.querySelector('.nav-backdrop');
-    if (!toggle) return;
-    function close() { document.body.classList.remove('nav-open'); }
-    toggle.addEventListener('click', function () { document.body.classList.toggle('nav-open'); });
-    if (backdrop) backdrop.addEventListener('click', close);
-    document.querySelectorAll('.main-nav a').forEach(function (a) { a.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-  });
-})();
+(function(){const nav=document.querySelector('.nav'),toggle=document.querySelector('.nav-toggle'),back=document.querySelector('.nav-backdrop');if(toggle&&nav){const close=()=>{nav.classList.remove('open');back&&back.classList.remove('show');document.body.style.overflow=''};toggle.addEventListener('click',()=>{nav.classList.toggle('open');back&&back.classList.toggle('show');document.body.style.overflow=nav.classList.contains('open')?'hidden':''});back&&back.addEventListener('click',close);nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));}})();
